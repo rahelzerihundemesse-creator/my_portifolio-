@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Rahel | Medical Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --main-bg: linear-gradient(120deg,#e0c3fc 0%, #8ec5fc 100%);
+            --primary: #5a88d8;
+            --accent: #a770ef;
+            --secondary: #f5f7fa;
+            --text: #2e3551;
+            --white: #fff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            font-family: 'Roboto', sans-serif;
+            background: var(--main-bg);
+            color: var(--text);
+        }
+
+        header {
+            background: rgba(255,255,255,0.85);
+            box-shadow: 0 6px 24px 0 rgba(167,112,239,0.14);
+            text-align: center;
+            padding: 3rem 1rem 2rem 1rem;
+            border-radius: 0 0 48px 48px;
+            margin-bottom: 2.5rem;
+        }
+
+        .profile-img {
+            width: 130px;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid var(--primary);
+            box-shadow: 0 4px 12px rgba(90,136,216,.18);
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.6rem;
+            margin: 1.2rem 0 0.3rem 0;
+            color: var(--accent);
+        }
+
+        .subtitle {
+            font-family: 'Roboto', sans-serif;
+            color: var(--primary);
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.7rem;
+        }
+
+        .bio {
+            color: var(--text);
+            max-width: 600px;
+            margin: 0.9rem auto;
+            font-size: 1.15rem;
+            background: rgba(255,255,255,0.8);
+            padding: 1rem 2rem;
+            border-radius: 24px;
+            box-shadow: 0 2px 10px #c5c5fa44;
+        }
+
+        nav {
+            margin: 2.2rem 0 2.5rem 0;
+            text-align: center;
+        }
+        nav a {
+            display: inline-block;
+            margin: 0 20px;
+            text-decoration: none;
+            font-weight: 500;
+            color: var(--primary);
+            padding: 0.5em 1.5em;
+            border-radius: 24px;
+            background: var(--secondary);
+            transition: background 0.2s,color 0.2s,box-shadow 0.2s;
+            box-shadow: 0 0 4px #bdd4fb49;
+        }
+        nav a:hover {
+            background: var(--accent);
+            color: var(--white);
+            box-shadow: 0 2px 20px #a770ef44;
+        }
+
+        section {
+            max-width: 900px;
+            margin: 2rem auto 2.5rem auto;
+            background: rgba(255,255,255,.93);
+            border-radius: 32px;
+            box-shadow: 0 8px 48px #8ec5fc22;
+            padding: 2.7rem 2.5rem 2rem 2.5rem;
+        }
+
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary);
+            margin-top: 0;
+            letter-spacing: 1px;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 35px;
+        }
+        .timeline:before {
+            content: "";
+            position: absolute;
+            left: 12px;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: linear-gradient(180deg,#a770ef 20%,#8ec5fc 90%);
+            border-radius: 2px;
+        }
+        .timeline-event {
+            margin-bottom: 2.1em;
+            position: relative;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: -4px;
+            top: 4px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 2px 8px #a770ef44;
+            border: 3px solid #fff;
+            z-index: 1;
+        }
+        .timeline-content {
+            background: var(--secondary);
+            padding: 1.1em 1.6em;
+            border-radius: 18px;
+            box-shadow: 0 2px 7px #c2e9fb33;
+            position: relative;
+            left: 12px;
+        }
+        .timeline-title {
+            margin: 0 0 0.5em 0;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        .timeline-date {
+            font-size: 0.95em;
+            color: #8a8ab3;
+            margin-bottom: 0.4em;
+            display: block;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.1rem;
+            margin-top: 1.3rem;
+        }
+        .skill-badge {
+            background: linear-gradient(80deg,#8ec5fc 0%,#e0c3fc 100%);
+            color: var(--primary);
+            padding: 0.6em 1.5em;
+            font-size: 1.06em;
+            border-radius: 21px;
+            box-shadow: 0 1px 8px #bdd4fabf;
+            font-weight: 500;
+        }
+
+        .contact-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3em;
+            flex-wrap: wrap;
+            margin-top: 1.3em;
+        }
+        .contact-card {
+            background: var(--accent);
+            color: #fff;
+            border-radius: 18px;
+            padding: 1em 2em;
+            font-size: 1.15rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8em;
+            box-shadow: 0 2px 17px #8ec5fc22;
+            transition: transform 0.15s;
+        }
+        .contact-card:hover {
+            transform: scale(1.03) translateY(-3px);
+        }
+
+        .fa {
+            font-family: "FontAwesome";
+            margin-right: 8px;
+            font-size: 1.2em;
+        }
+
+        /* Decorative SVG waves */
+        .wave {
+            display: block;
+            margin-bottom: -1px;
+        }
+
+        @media (max-width:700px) {
+            section, header {
+                padding: 1.5rem 1rem;
+            }
+            .skills {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .contact-box {
+                flex-direction: column;
+                gap: 1.7em;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Rahel's Photo" class="profile-img">
+        <h1>Dr. Rahel</h1>
+        <div class="subtitle">Medical Student & Future Doctor</div>
+        <div class="bio">
+            Passionate about improving lives through medicine, research, and compassion.<br>
+            Eager to learn new things and contribute to the healthcare community. <br>
+            <em>"Every patient is a story waiting to be heard."</em>
+        </div>
+        <nav>
+            <a href="#about"><i class="fas fa-user-graduate"></i> About</a>
+            <a href="#journey"><i class="fas fa-stethoscope"></i> Medical Journey</a>
+            <a href="#skills"><i class="fas fa-microscope"></i> Skills</a>
+            <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+        </nav>
+        <svg class="wave" height="50" width="100%" viewBox="0 0 1440 120"><path fill="#ffffff" fill-opacity="1" d="M0,96L80,80C160,64,320,32,480,21.3C640,11,800,21,960,42.7C1120,64,1280,96,1360,112L1440,128L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path></svg>
+    </header>
+
+    <main>
+
+        <section id="about">
+            <h2>👩‍⚕️ About Me</h2>
+            <p>
+                My name is Rahel, and I'm a dedicated medical student with a fervor for science and patient care. I believe in holistic medicine, continuous learning, and working as a bridge between cutting-edge science and compassionate healthcare. I enjoy volunteering and hope to make a positive impact wherever I go!
+            </p>
+        </section>
+
+        <section id="journey">
+            <h2>🩺 Medical Journey</h2>
+            <div class="timeline">
+                <div class="timeline-event">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2021 - Present</span>
+                        <div class="timeline-title">Medical Student, University of Health & Science</div>
+                        <div>Studying clinical medicine, excelling in anatomy and research projects. Active in student medical organizations and local health campaigns.</div>
+                    </div>
+                </div>
+                <div class="timeline-event">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2018 - 2021</span>
+                        <div class="timeline-title">Pre-Medicine Studies</div>
+                        <div>Focused on foundational sciences: biology, chemistry, and human physiology. Led tutoring sessions for peers.</div>
+                    </div>
+                </div>
+                <div class="timeline-event">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2016 - 2018</span>
+                        <div class="timeline-title">Volunteer, Community Health Center</div>
+                        <div>Assisted in organizing community health outreach programs and patient education seminars.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>🔬 Skills & Interests</h2>
+            <div class="skills">
+                <div class="skill-badge"><i class="fas fa-stethoscope"></i> Clinical Skills</div>
+                <div class="skill-badge"><i class="fas fa-microscope"></i> Medical Research</div>
+                <div class="skill-badge"><i class="fas fa-laptop-medical"></i> Digital Health</div>
+                <div class="skill-badge"><i class="fas fa-heartbeat"></i> Patient Care</div>
+                <div class="skill-badge"><i class="fas fa-leaf"></i> Wellness Advocacy</div>
+                <div class="skill-badge"><i class="fas fa-language"></i> Multilingual (English, Amharic)</div>
+                <div class="skill-badge"><i class="fas fa-chalkboard-teacher"></i> Peer Tutoring</div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>📬 Contact Me</h2>
+            <div class="contact-box">
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i> raheldoc@email.com
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-linkedin"></i> <a href="https://linkedin.com/in/raheldoc" target="_blank" style="color: #fff; text-decoration:underline;">LinkedIn</a>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-instagram"></i> <a href="https://instagram.com/rahel.md" target="_blank" style="color: #fff; text-decoration:underline;">@rahel.md</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <svg class="wave" height="54" width="100%" viewBox="0 0 1440 120" style="margin-top: -20px;">
+        <path fill="#8ec5fc" fill-opacity="1" d="M0,64L60,58.7C120,53,240,43,360,48C480,53,600,75,720,85.3C840,96,960,96,1080,90.7C1200,85,1320,75,1380,69.3L1440,64L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"></path>
+    </svg>
+</body>
+</html>
